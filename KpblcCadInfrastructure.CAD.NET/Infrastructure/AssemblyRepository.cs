@@ -1,16 +1,18 @@
 ﻿using KpblcCadInfrastructure.Abstractions.Interfaces;
 using System.Reflection;
+using KpblcCadInfrastructure.Abstractions.Entities;
 
 namespace KpblcCadInfrastructure.CAD.NET.Infrastructure
 {
-    internal class AssemblyRepository : IAssemblyRepository
+    internal class AssemblyRepository : IAssemblyInfoRepository
     {
-        public IEnumerable<Assembly> Get()
+        public IEnumerable<AssemblyInfo> Get()
         {
-            return AppDomain.CurrentDomain.GetAssemblies().ToList();
+            return AppDomain.CurrentDomain.GetAssemblies()
+                .Select(o => new AssemblyInfo(o));
         }
 
-        public IEnumerable<Assembly> GetCustomAssemblies()
+        public IEnumerable<AssemblyInfo> GetCustomAssemblies()
         {
             string programFiles = Environment.GetEnvironmentVariable("programfiles").ToUpper();
             return Get().Where(o =>

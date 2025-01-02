@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Collections.ObjectModel;
+using System.Reflection;
+using KpblcCadInfrastructure.Abstractions.Entities;
 using KpblcCadInfrastructure.Abstractions.Interfaces;
 using KpblcCadInfrastructure.Abstractions.ViewModels.Base;
 
@@ -6,7 +8,7 @@ namespace KpblcCadInfrastructure.Core.NET.ViewModels
 {
     public class AssembliesViewModel : ViewModel
     {
-        public AssembliesViewModel(IAssemblyRepository AssemblyRepository)
+        public AssembliesViewModel(IAssemblyInfoRepository AssemblyRepository)
         {
             _assemblyRepository = AssemblyRepository;
             Title = "Показать сборки";
@@ -25,7 +27,7 @@ namespace KpblcCadInfrastructure.Core.NET.ViewModels
             }
         }
 
-        public List<Assembly> AssembliesList
+        public List<AssemblyInfo> AssembliesList
         {
             get => _assembliesList;
             private set => Set(ref _assembliesList, value);
@@ -35,16 +37,16 @@ namespace KpblcCadInfrastructure.Core.NET.ViewModels
         {
             if (ShowCustomAssemblies)
             {
-                AssembliesList = _assemblyRepository.GetCustomAssemblies().ToList();
+                AssembliesList = new List<AssemblyInfo>(_assemblyRepository.GetCustomAssemblies());
             }
             else
             {
-                AssembliesList = _assemblyRepository.Get().ToList();
+                AssembliesList = new List<AssemblyInfo>(_assemblyRepository.Get());
             }
         }
 
-        private IAssemblyRepository _assemblyRepository;
+        private IAssemblyInfoRepository _assemblyRepository;
         private bool _showCustomAssemblies;
-        private List<Assembly> _assembliesList;
+        private List<AssemblyInfo> _assembliesList;
     }
 }

@@ -1,8 +1,8 @@
-﻿using KpblcCadInfrastructure.Abstractions.Interfaces;
+﻿using KpblcCadInfrastructure.Abstractions.Entities;
+using KpblcCadInfrastructure.Abstractions.Interfaces;
 using KpblcCadInfrastructure.CAD.NET.Infrastructure;
 using KpblcCadInfrastructure.Core.NET.ViewModels;
 using KpblcCadInfrastructure.Core.NET.Views.Windows;
-using System.Reflection;
 using Teigha.Runtime;
 using Application = HostMgd.ApplicationServices.Application;
 using Exception = System.Exception;
@@ -14,13 +14,13 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("-get-all-assemblies")]
         public static void GetAllAssembliesCommandLineMode()
         {
-            IAssemblyRepository rep = new AssemblyRepository();
+            IAssemblyInfoRepository rep = new AssemblyRepository();
             IMessageService messageService = new MessageService();
             try
             {
-                foreach (Assembly assembly in rep.Get().OrderBy(o => o.GetName(false).Name))
+                foreach (AssemblyInfo assembly in rep.Get().OrderBy(o => o.Location))
                 {
-                    messageService.ConsoleMessage(assembly.FullName);
+                    messageService.ConsoleMessage(assembly.Location);
                 }
             }
             catch (Exception ex)
@@ -32,7 +32,7 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("get-all-assemblies")]
         public static void GetAllAssembliesDialogMode()
         {
-            IAssemblyRepository assemblyRepository = new AssemblyRepository();
+            IAssemblyInfoRepository assemblyRepository = new AssemblyRepository();
             AssembliesViewModel vm = new AssembliesViewModel(assemblyRepository);
             AssembliesWindow win = new AssembliesWindow()
             {

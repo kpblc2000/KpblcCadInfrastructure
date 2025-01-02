@@ -12,10 +12,10 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("-get-all-commands")]
         public static void GetAllCommandsCommandLineMode()
         {
-            IAssemblyRepository assemblyRepository = new AssemblyRepository();
+            IAssemblyInfoRepository assemblyRepository = new AssemblyRepository();
             ICommandInfoRepository commandInfoRepository = new CommandInfoRepository();
             IMessageService messageService = new MessageService();
-            foreach (CommandInfo info in commandInfoRepository.Get(assemblyRepository.Get()))
+            foreach (CommandInfo info in commandInfoRepository.Get(assemblyRepository.Get().Select(o => o.Assembly)))
             {
                 string message = info.GlobalName;
                 if (!string.IsNullOrWhiteSpace(info.LocalizedName))
