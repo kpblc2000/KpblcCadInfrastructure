@@ -9,5 +9,21 @@ namespace KpblcCadInfrastructure.CAD.NET.Infrastructure
         {
             return AppDomain.CurrentDomain.GetAssemblies().ToList();
         }
+
+        public IEnumerable<Assembly> GetCustomAssemblies()
+        {
+            string programFiles = Environment.GetEnvironmentVariable("programfiles").ToUpper();
+            return Get().Where(o =>
+            {
+                try
+                {
+                    return !o.Location.ToUpper().StartsWith(programFiles);
+                }
+                catch
+                {
+                    return true;
+                }
+            });
+        }
     }
 }

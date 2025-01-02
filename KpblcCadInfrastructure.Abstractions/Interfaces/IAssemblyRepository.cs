@@ -10,5 +10,10 @@ namespace KpblcCadInfrastructure.Abstractions.Interfaces
         /// </summary>
         /// <returns></returns>
         IEnumerable<Assembly> Get();
+        /// <summary>
+        /// Получение списка загруженных сборок, кроме тех, что из %ProgramFiles%
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<Assembly> GetCustomAssemblies();
     }
 }
