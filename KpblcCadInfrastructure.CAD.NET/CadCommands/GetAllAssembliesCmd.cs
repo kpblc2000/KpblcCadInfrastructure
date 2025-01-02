@@ -32,8 +32,8 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("get-all-assemblies")]
         public static void GetAllAssembliesDialogMode()
         {
-            IMessageService messageService = new MessageService();
-            AssembliesViewModel vm = new AssembliesViewModel(messageService);
+            IAssemblyRepository assemblyRepository = new AssemblyRepository();
+            AssembliesViewModel vm = new AssembliesViewModel(assemblyRepository);
             AssembliesWindow win = new AssembliesWindow()
             {
                 DataContext = vm,

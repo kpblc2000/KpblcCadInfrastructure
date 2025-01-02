@@ -19,7 +19,8 @@
         <CheckBox Grid.Row="0"
                   Content="Показывать только внешние сборки" 
                   IsChecked="{Binding ShowCustomAssemblies}"/>
-        <DataGrid Grid.Row="1"></DataGrid>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding AssembliesList}" IsReadOnly="True">
+        </DataGrid>
         <UniformGrid Grid.Row="2"
                      Rows="1"
                      HorizontalAlignment="Right"

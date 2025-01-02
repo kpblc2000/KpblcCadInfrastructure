@@ -1,14 +1,16 @@
-﻿using KpblcCadInfrastructure.Abstractions.Interfaces;
+﻿using System.Reflection;
+using KpblcCadInfrastructure.Abstractions.Interfaces;
 using KpblcCadInfrastructure.Abstractions.ViewModels.Base;
 
 namespace KpblcCadInfrastructure.Core.NET.ViewModels
 {
     public class AssembliesViewModel : ViewModel
     {
-        public AssembliesViewModel(IMessageService MessageService)
+        public AssembliesViewModel(IAssemblyRepository AssemblyRepository)
         {
-            _messageService = MessageService;
+            _assemblyRepository = AssemblyRepository;
             Title = "Показать сборки";
+            Refresh();
         }
 
         public bool ShowCustomAssemblies
@@ -18,14 +20,31 @@ namespace KpblcCadInfrastructure.Core.NET.ViewModels
             {
                 if (Set(ref _showCustomAssemblies, value))
                 {
-                    _messageService.InfoMessage("Показывать " +
-                                                (_showCustomAssemblies ? "только пользовательские" : "все") +
-                                                " сборки", nameof(ShowCustomAssemblies));
+                    Refresh();
                 }
             }
         }
 
-        private IMessageService _messageService;
+        public List<Assembly> AssembliesList
+        {
+            get => _assembliesList;
+            private set => Set(ref _assembliesList, value);
+        }
+
+        private void Refresh()
+        {
+            if (ShowCustomAssemblies)
+            {
+                AssembliesList = _assemblyRepository.GetCustomAssemblies().ToList();
+            }
+            else
+            {
+                AssembliesList = _assemblyRepository.Get().ToList();
+            }
+        }
+
+        private IAssemblyRepository _assemblyRepository;
         private bool _showCustomAssemblies;
+        private List<Assembly> _assembliesList;
     }
 }
