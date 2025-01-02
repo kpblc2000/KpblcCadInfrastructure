@@ -1,4 +1,6 @@
-﻿using KpblcCadInfrastructure.Abstractions.Entities;
+﻿using HostMgd.ApplicationServices;
+using HostMgd.EditorInput;
+using KpblcCadInfrastructure.Abstractions.Entities;
 using KpblcCadInfrastructure.Abstractions.Interfaces;
 using KpblcCadInfrastructure.CAD.NET.Infrastructure;
 using KpblcCadInfrastructure.Core.NET.ViewModels;
@@ -14,11 +16,45 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("-get-all-assemblies")]
         public static void GetAllAssembliesCommandLineMode()
         {
+
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+            if (doc == null)
+            {
+                return;
+            }
+
+            PromptKeywordOptions options = new PromptKeywordOptions("\nВыводить полный список [Да/Нет] <Да> : ");
+            options.Keywords.Add("Да");
+            options.Keywords.Add("Yes");
+            options.Keywords.Add("Нет");
+            options.Keywords.Add("No");
+            options.AllowNone = true;
+            options.AllowArbitraryInput = false;
+
+            PromptResult res = doc.Editor.GetKeywords(options);
+
+            if (res.Status == PromptStatus.Cancel)
+            {
+                return;
+            }
+
+            if (res.Status == PromptStatus.None)
+            {
+                res.StringResult = "Y";
+            }
+
+            bool showAllAssemblies = res.StringResult.StartsWith("Y") || res.StringResult.StartsWith("Д");
+
             IAssemblyInfoRepository rep = new AssemblyRepository();
+            AssembliesViewModel vm = new AssembliesViewModel(rep)
+            {
+                ShowCustomAssemblies = showAllAssemblies,
+            };
+
             IMessageService messageService = new MessageService();
             try
             {
-                foreach (AssemblyInfo assembly in rep.Get().OrderBy(o => o.Location))
+                foreach (AssemblyInfo assembly in vm.AssembliesList.OrderBy(o => o.Location))
                 {
                     messageService.ConsoleMessage(assembly.Location);
                 }

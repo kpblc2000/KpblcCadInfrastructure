@@ -12,8 +12,8 @@ namespace KpblcCadInfrastructure.Abstractions.Entities
             this.Version = Assembly.GetName(false).Version;
         }
 
-        public string Location { get; }
-        public Version Version { get; }
+        public string Location { get; set; }
+        public Version Version { get; set; }
         public Assembly Assembly { get; }
     }
 }
