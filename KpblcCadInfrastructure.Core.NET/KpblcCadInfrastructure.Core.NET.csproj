@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0-windows</TargetFramework>
@@ -11,14 +11,5 @@
 		<GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
 		<AssemblyVersion>1.0.*</AssemblyVersion>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="nanoCadCore23.1.NET" Version="1.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\KpblcCadInfrastructure.Abstractions\KpblcCadInfrastructure.Abstractions.csproj" />
-	  <ProjectReference Include="..\KpblcCadInfrastructure.Core.NET\KpblcCadInfrastructure.Core.NET.csproj" />
-	</ItemGroup>
 
 </Project>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KpblcCadInfrastructure.Abst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KpblcCadInfrastructure.CAD.NET", "KpblcCadInfrastructure.CAD.NET\KpblcCadInfrastructure.CAD.NET.csproj", "{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KpblcCadInfrastructure.Core.NET", "KpblcCadInfrastructure.Core.NET\KpblcCadInfrastructure.Core.NET.csproj", "{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

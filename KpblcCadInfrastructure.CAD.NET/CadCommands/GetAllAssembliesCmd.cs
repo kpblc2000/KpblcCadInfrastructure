@@ -1,7 +1,9 @@
 ﻿using KpblcCadInfrastructure.Abstractions.Interfaces;
 using KpblcCadInfrastructure.CAD.NET.Infrastructure;
+using KpblcCadInfrastructure.Core.NET.Views.Windows;
 using System.Reflection;
 using Teigha.Runtime;
+using Application = HostMgd.ApplicationServices.Application;
 using Exception = System.Exception;
 
 namespace KpblcCadInfrastructure.CAD.NET.CadCommands
@@ -24,6 +26,14 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
             {
                 messageService.ExceptionMessage(ex);
             }
+        }
+
+        [CommandMethod("get-all-assemblies")]
+        public static void GetAllAssembliesDialogMode()
+        {
+            AssembliesWindow win = new AssembliesWindow();
+            Application.ShowModalWindow(win);
+
         }
     }
 }

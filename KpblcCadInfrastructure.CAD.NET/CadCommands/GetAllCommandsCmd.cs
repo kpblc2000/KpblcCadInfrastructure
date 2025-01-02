@@ -1,7 +1,9 @@
 ﻿using KpblcCadInfrastructure.Abstractions.Entities;
 using KpblcCadInfrastructure.Abstractions.Interfaces;
 using KpblcCadInfrastructure.CAD.NET.Infrastructure;
+using KpblcCadInfrastructure.Core.NET.Views.Windows;
 using Teigha.Runtime;
+using Application = HostMgd.ApplicationServices.Application;
 
 namespace KpblcCadInfrastructure.CAD.NET.CadCommands
 {
@@ -33,6 +35,13 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
 
                 messageService.ConsoleMessage(message);
             }
+        }
+
+        [CommandMethod("get-all-commands")]
+        public static void GetAllCommandsDialogMode()
+        {
+            CommandsWindow win = new CommandsWindow();
+            Application.ShowModalWindow(win);
         }
     }
 }
