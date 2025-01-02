@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KpblcCadInfrastructure.Abstractions", "KpblcCadInfrastructure.Abstractions\KpblcCadInfrastructure.Abstractions.csproj", "{010AC6B4-0F9A-4778-A6F8-E3696AAFA78C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KpblcCadInfrastructure.CAD.NET", "KpblcCadInfrastructure.CAD.NET\KpblcCadInfrastructure.CAD.NET.csproj", "{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{010AC6B4-0F9A-4778-A6F8-E3696AAFA78C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010AC6B4-0F9A-4778-A6F8-E3696AAFA78C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010AC6B4-0F9A-4778-A6F8-E3696AAFA78C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010AC6B4-0F9A-4778-A6F8-E3696AAFA78C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFCE6BD0-7A0E-426B-83C6-9290E7CA45DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
