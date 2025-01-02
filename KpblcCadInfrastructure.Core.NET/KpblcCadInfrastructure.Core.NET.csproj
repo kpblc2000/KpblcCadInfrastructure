@@ -12,4 +12,8 @@
 		<AssemblyVersion>1.0.*</AssemblyVersion>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\KpblcCadInfrastructure.Abstractions\KpblcCadInfrastructure.Abstractions.csproj" />
+	</ItemGroup>
+
 </Project>

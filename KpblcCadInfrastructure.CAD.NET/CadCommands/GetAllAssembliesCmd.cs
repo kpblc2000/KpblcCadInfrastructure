@@ -1,5 +1,6 @@
 ﻿using KpblcCadInfrastructure.Abstractions.Interfaces;
 using KpblcCadInfrastructure.CAD.NET.Infrastructure;
+using KpblcCadInfrastructure.Core.NET.ViewModels;
 using KpblcCadInfrastructure.Core.NET.Views.Windows;
 using System.Reflection;
 using Teigha.Runtime;
@@ -31,9 +32,13 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("get-all-assemblies")]
         public static void GetAllAssembliesDialogMode()
         {
-            AssembliesWindow win = new AssembliesWindow();
+            IMessageService messageService = new MessageService();
+            AssembliesViewModel vm = new AssembliesViewModel(messageService);
+            AssembliesWindow win = new AssembliesWindow()
+            {
+                DataContext = vm,
+            };
             Application.ShowModalWindow(win);
-
         }
     }
 }

@@ -14,7 +14,7 @@ namespace KpblcCadInfrastructure.CAD.NET.Infrastructure
             _title = "Kpblc.CAD.NET v." + _version + " : ";
         }
 
-        public void ConsoleMessage(string Message, [CallerMemberName] string CallerName = null)
+        public void ConsoleMessage(string Message, [CallerMemberName] string? CallerName = null)
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
             if (doc == null)
@@ -26,19 +26,19 @@ namespace KpblcCadInfrastructure.CAD.NET.Infrastructure
             ed.WriteMessage("\n" + Message);
         }
 
-        public void InfoMessage(string Message, [CallerMemberName] string CallerName = null)
+        public void InfoMessage(string Message, [CallerMemberName] string? CallerName = null)
         {
             MessageBox.Show((string.IsNullOrWhiteSpace(CallerName) ? "" : $"{CallerName} : ") + Message,
                 _title + "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void ErrorMessage(string Message, [CallerMemberName] string CallerName = null)
+        public void ErrorMessage(string Message, [CallerMemberName] string? CallerName = null)
         {
             MessageBox.Show((string.IsNullOrWhiteSpace(CallerName) ? "" : $"{CallerName} : ") + Message,
                 _title + "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void ExceptionMessage(Exception Ex, [CallerMemberName] string CallerName = null)
+        public void ExceptionMessage(Exception Ex, [CallerMemberName] string? CallerName = null)
         {
             MessageBox.Show(
                 (string.IsNullOrWhiteSpace(CallerName) ? "" : $"{CallerName} : ") + "\n" + Ex.Message + "\n" +
