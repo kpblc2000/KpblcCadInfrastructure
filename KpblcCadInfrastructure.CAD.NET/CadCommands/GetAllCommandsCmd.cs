@@ -2,6 +2,7 @@
 using KpblcCadInfrastructure.Abstractions.Interfaces;
 using KpblcCadInfrastructure.Abstractions.Repositories;
 using KpblcCadInfrastructure.CAD.NET.Infrastructure;
+using KpblcCadInfrastructure.Core.NET.ViewModels;
 using KpblcCadInfrastructure.Core.NET.Views.Windows;
 using Teigha.Runtime;
 using Application = HostMgd.ApplicationServices.Application;
@@ -41,7 +42,12 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("get-all-commands")]
         public static void GetAllCommandsDialogMode()
         {
-            CommandsWindow win = new CommandsWindow();
+            ICommandInfoRepository rep = new CommandInfoRepository();
+            CommandInfosViewModel vm = new CommandInfosViewModel(rep);
+            CommandsWindow win = new CommandsWindow()
+                {
+                    DataContext = vm,
+                };
             Application.ShowModalWindow(win);
         }
     }

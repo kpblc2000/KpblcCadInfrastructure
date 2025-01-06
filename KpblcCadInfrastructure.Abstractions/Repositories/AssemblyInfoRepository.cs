@@ -10,7 +10,7 @@ namespace KpblcCadInfrastructure.Abstractions.Repositories
         public virtual IEnumerable<AssemblyInfo> Get()
         {
             return AppDomain.CurrentDomain.GetAssemblies()
-                .Select(o => new AssemblyInfo(o));
+                .Select(o => new AssemblyInfo(o.Location, Version.Parse(o.ImageRuntimeVersion)));
         }
 
         public IEnumerable<AssemblyInfo> GetCustomAssemblies()

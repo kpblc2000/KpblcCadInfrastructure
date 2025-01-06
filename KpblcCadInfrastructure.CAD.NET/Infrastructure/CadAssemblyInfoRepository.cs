@@ -8,7 +8,7 @@ namespace KpblcCadInfrastructure.CAD.NET.Infrastructure
         public IEnumerable<AssemblyInfo> Get()
         {
             return AppDomain.CurrentDomain.GetAssemblies()
-                .Select(o => new AssemblyInfo(o));
+                .Select(o => new AssemblyInfo(o.Location, Version.Parse(o.ImageRuntimeVersion)));
         }
     }
 }
