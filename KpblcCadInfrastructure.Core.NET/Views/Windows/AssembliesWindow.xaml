@@ -9,7 +9,7 @@
         Title="{Binding Title}"
         Height="250"
         Width="600"
-        d:DataContext="{d:DesignInstance vm:AssembliesViewModel}">
+        d:DataContext="{d:DesignInstance vm:AssemblyInfosViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

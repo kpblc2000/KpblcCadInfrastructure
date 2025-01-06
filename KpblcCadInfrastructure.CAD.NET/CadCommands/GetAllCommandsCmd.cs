@@ -1,5 +1,6 @@
 ﻿using KpblcCadInfrastructure.Abstractions.Entities;
 using KpblcCadInfrastructure.Abstractions.Interfaces;
+using KpblcCadInfrastructure.Abstractions.Repositories;
 using KpblcCadInfrastructure.CAD.NET.Infrastructure;
 using KpblcCadInfrastructure.Core.NET.Views.Windows;
 using Teigha.Runtime;
@@ -12,7 +13,7 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("-get-all-commands")]
         public static void GetAllCommandsCommandLineMode()
         {
-            IAssemblyInfoRepository assemblyRepository = new AssemblyRepository();
+            AssemblyInfoRepository assemblyRepository = new CadAssemblyInfoRepository();
             ICommandInfoRepository commandInfoRepository = new CommandInfoRepository();
             IMessageService messageService = new MessageService();
             foreach (CommandInfo info in commandInfoRepository.Get(assemblyRepository.Get().Select(o => o.Assembly)))

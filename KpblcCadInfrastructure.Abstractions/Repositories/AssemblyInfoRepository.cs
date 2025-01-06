@@ -1,12 +1,13 @@
-﻿using KpblcCadInfrastructure.Abstractions.Interfaces;
-using System.Reflection;
-using KpblcCadInfrastructure.Abstractions.Entities;
+﻿using KpblcCadInfrastructure.Abstractions.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace KpblcCadInfrastructure.CAD.NET.Infrastructure
+namespace KpblcCadInfrastructure.Abstractions.Repositories
 {
-    internal class AssemblyRepository : IAssemblyInfoRepository
+    public abstract class AssemblyInfoRepository 
     {
-        public IEnumerable<AssemblyInfo> Get()
+        public virtual IEnumerable<AssemblyInfo> Get()
         {
             return AppDomain.CurrentDomain.GetAssemblies()
                 .Select(o => new AssemblyInfo(o));
