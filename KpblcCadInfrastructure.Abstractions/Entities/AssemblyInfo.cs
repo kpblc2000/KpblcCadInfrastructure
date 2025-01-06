@@ -8,8 +8,14 @@ namespace KpblcCadInfrastructure.Abstractions.Entities
         public AssemblyInfo(Assembly Assembly)
         {
             this.Assembly = Assembly;
-            this.Location = Assembly.Location;
-            this.Version = Assembly.GetName(false).Version;
+            Location = Assembly.Location;
+            Version = Assembly.GetName(false).Version;
+        }
+
+        public AssemblyInfo(string Location, Version Version)
+        {
+            this.Location = Location;
+            this.Version = Version;
         }
 
         public string Location { get; set; }
