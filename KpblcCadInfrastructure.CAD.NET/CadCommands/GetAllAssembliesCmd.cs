@@ -2,6 +2,7 @@
 using HostMgd.EditorInput;
 using KpblcCadInfrastructure.Abstractions.Entities;
 using KpblcCadInfrastructure.Abstractions.Interfaces;
+using KpblcCadInfrastructure.Abstractions.Repositories;
 using KpblcCadInfrastructure.CAD.NET.Infrastructure;
 using KpblcCadInfrastructure.Core.NET.ViewModels;
 using KpblcCadInfrastructure.Core.NET.Views.Windows;
@@ -45,8 +46,8 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
 
             bool showAllAssemblies = res.StringResult.StartsWith("Y") || res.StringResult.StartsWith("Д");
 
-            IAssemblyInfoRepository rep = new AssemblyRepository();
-            AssembliesViewModel vm = new AssembliesViewModel(rep)
+            AssemblyInfoRepository rep = new CadAssemblyInfoRepository();
+            AssemblyInfosViewModel vm = new AssemblyInfosViewModel(rep)
             {
                 ShowCustomAssemblies = showAllAssemblies,
             };
@@ -68,8 +69,8 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
         [CommandMethod("get-all-assemblies")]
         public static void GetAllAssembliesDialogMode()
         {
-            IAssemblyInfoRepository assemblyRepository = new AssemblyRepository();
-            AssembliesViewModel vm = new AssembliesViewModel(assemblyRepository);
+            AssemblyInfoRepository assemblyRepository = new CadAssemblyInfoRepository();
+            AssemblyInfosViewModel vm = new AssemblyInfosViewModel(assemblyRepository);
             AssembliesWindow win = new AssembliesWindow()
             {
                 DataContext = vm,

@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KpblcCadInfrastructure.CAD.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KpblcCadInfrastructure.Core.NET", "KpblcCadInfrastructure.Core.NET\KpblcCadInfrastructure.Core.NET.csproj", "{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CE2BD0A0-BC8A-4432-9B7D-01FB3DC3479D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KpblcCadInfrastructure.NUnitTests", "Tests\KpblcCadInfrastructure.NUnitTests\KpblcCadInfrastructure.NUnitTests.csproj", "{8D1D19CC-0375-410F-B8DC-488C3EBA8832}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,15 @@ Global
 		{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18262EF1-F1B7-4B11-B983-6ABA0F7442B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1D19CC-0375-410F-B8DC-488C3EBA8832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1D19CC-0375-410F-B8DC-488C3EBA8832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1D19CC-0375-410F-B8DC-488C3EBA8832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1D19CC-0375-410F-B8DC-488C3EBA8832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D1D19CC-0375-410F-B8DC-488C3EBA8832} = {CE2BD0A0-BC8A-4432-9B7D-01FB3DC3479D}
 	EndGlobalSection
 EndGlobal
