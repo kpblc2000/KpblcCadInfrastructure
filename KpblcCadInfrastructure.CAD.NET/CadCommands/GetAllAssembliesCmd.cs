@@ -24,11 +24,8 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
                 return;
             }
 
-            PromptKeywordOptions options = new PromptKeywordOptions("\nВыводить полный список [Да/Нет] <Да> : ");
-            options.Keywords.Add("Да");
-            options.Keywords.Add("Yes");
-            options.Keywords.Add("Нет");
-            options.Keywords.Add("No");
+            PromptKeywordOptions options =
+                new PromptKeywordOptions("\nВыводить полный список [Да/Нет] <Да> : ", "Yes Да No Нет");
             options.AllowNone = true;
             options.AllowArbitraryInput = false;
 
@@ -44,12 +41,12 @@ namespace KpblcCadInfrastructure.CAD.NET.CadCommands
                 res.StringResult = "Y";
             }
 
-            bool showAllAssemblies = res.StringResult.StartsWith("Y") || res.StringResult.StartsWith("Д");
+            bool showCustomAssemblies = !(res.StringResult.StartsWith("Y") || res.StringResult.StartsWith("Д"));
 
             AssemblyInfoRepository rep = new CadAssemblyInfoRepository();
             AssemblyInfosViewModel vm = new AssemblyInfosViewModel(rep)
             {
-                ShowCustomAssemblies = showAllAssemblies,
+                ShowCustomAssemblies = showCustomAssemblies,
             };
 
             IMessageService messageService = new MessageService();
